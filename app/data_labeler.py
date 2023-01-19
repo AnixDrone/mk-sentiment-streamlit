@@ -7,8 +7,6 @@ import os
 URL = 'http://130.61.244.34:5000/'
 
 
-
-
 def get_sentence():
     """Get random sentence from the database.
 
