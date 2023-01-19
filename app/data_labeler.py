@@ -4,7 +4,7 @@ import requests
 import os
 
 
-URL = 'http://130.61.244.34:5000/'
+URL = "http://130.61.244.34:5000/"
 
 
 def get_sentence():
@@ -13,36 +13,47 @@ def get_sentence():
     :return: Sentence and its id
     :rtype: tuple
     """
-    req = requests.get(f'{URL}random_sentence', timeout=500).json()
+    req = requests.get(f"{URL}random_sentence", timeout=500).json()
     if req is None:
         return None
-    sentence = req['sentence']
-    s_id = req['id']
+    sentence = req["sentence"]
+    s_id = req["id"]
     return sentence, s_id
 
 
-if __name__ == '__main__':
-    extra_title = os.getenv('EXTRA_TITLE', '')
-    st.title(
-        f'Label data for macedonian sentiment predictor 200posto{extra_title}')
+if __name__ == "__main__":
+    extra_title = os.getenv("EXTRA_TITLE", "")
+    st.title(f"Label data for macedonian sentiment predictor 200posto{extra_title}")
     sentence_info = get_sentence()
     SOME_THING = None
     if sentence_info is None:
-        SOME_THING = st.subheader('There is no unlabled sentences')
-        st.button('Refresh')
+        SOME_THING = st.subheader("There is no unlabled sentences")
+        st.button("Refresh")
     else:
         SOME_THING = st.subheader(sentence_info[0])
-        st.caption('Please choose sentiment for the presented sentence')
+        st.caption("Please choose sentiment for the presented sentence")
 
         col1, col2, col3 = st.columns(3)
         with col1:
-            st.button('Positive sentiment', on_click=lambda: requests.get(
-                f'{URL}sentence/{sentence_info[1]}/0', timeout=500))
+            st.button(
+                "Positive sentiment",
+                on_click=lambda: requests.get(
+                    f"{URL}sentence/{sentence_info[1]}/0", timeout=500
+                ),
+            )
 
         with col2:
-            st.button('Neutral sentiment', on_click=lambda: requests.get(
-                f'{URL}sentence/{sentence_info[1]}/1', timeout=500))
+            st.button(
+                "Neutral sentiment",
+                on_click=lambda: requests.get(
+                    f"{URL}sentence/{sentence_info[1]}/1", timeout=500
+                ),
+            )
 
         with col3:
-            st.button('Negative sentiment', on_click=lambda: requests.get(
-                f'{URL}sentence/{sentence_info[1]}/2', timeout=500))
+            st.button(
+                "Negative sentiment",
+                on_click=lambda: requests.get(
+                    f"{URL}sentence/{sentence_info[1]}/2", timeout=500
+                ),
+            )
