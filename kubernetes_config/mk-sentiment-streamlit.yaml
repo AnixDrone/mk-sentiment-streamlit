@@ -1,8 +1,13 @@
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: mk-sentiment-streamlit-ns
+--
 apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: mk-sentiment-streamlit
-  namespace: mk-sentiment-streamlit
+  namespace: mk-sentiment-streamlit-ns
 spec:
   replicas: 5
   selector:
@@ -26,7 +31,7 @@ apiVersion: v1
 kind: Service
 metadata:
   name: mk-sentiment-streamlit-service
-  namespace: mk-sentiment-streamlit
+  namespace: mk-sentiment-streamlit-ns
 spec:
   type: ClusterIP
   ports:
