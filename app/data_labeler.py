@@ -1,8 +1,8 @@
 """Data Labeler."""
-import streamlit as st
-import requests
 import os
 
+import requests
+import streamlit as st
 
 URL = "http://130.61.244.34:5000/"
 
