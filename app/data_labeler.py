@@ -1,9 +1,12 @@
 """Data Labeler."""
 import streamlit as st
 import requests
+import os
 
 
 URL = 'http://130.61.244.34:5000/'
+
+
 
 
 def get_sentence():
@@ -21,7 +24,8 @@ def get_sentence():
 
 
 if __name__ == '__main__':
-    st.title('Label data for macedonian sentiment predictor')
+    extra_title = os.environ.get('EXTRA_TITLE')
+    st.title(f'Label data for macedonian sentiment predictor {extra_title}')
     sentence_info = get_sentence()
     SOME_THING = None
     if sentence_info is None:

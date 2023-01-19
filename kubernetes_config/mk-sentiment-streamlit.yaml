@@ -24,6 +24,9 @@ spec:
         - name: mk-sentiment-streamlit
           image: anixdrone/mk-sentiment-streamlit
           imagePullPolicy: Always
+          env:
+            - name: EXTRA_TITLE
+              value: "makedonija e golema zemja"
           ports:
             - containerPort: 8501
               protocol: TCP
