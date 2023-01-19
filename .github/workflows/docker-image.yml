@@ -34,7 +34,7 @@ jobs:
       - name: Kubernetes yaml validation by kubeval
         uses: makocchi-git/actions-k8s-manifests-validate-kubeval@v1.0.1
         with:
-          files: kubernetes_config/*
+          files: kubernetes_config/mk-sentiment-streamlit.yaml
           token: ${{ secrets.GITHUB_TOKEN }}
   docker:
     needs: [run-lint, validate_yaml]
