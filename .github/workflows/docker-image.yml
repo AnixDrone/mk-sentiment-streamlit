@@ -37,7 +37,7 @@ jobs:
           files: kubernetes_config/*
           token: ${{ secrets.GITHUB_TOKEN }}
   docker:
-    needs: run-lint, validate_yaml
+    needs: [run-lint, validate_yaml]
     runs-on: ubuntu-latest
     steps:
       -
