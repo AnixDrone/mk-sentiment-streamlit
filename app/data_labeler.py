@@ -23,7 +23,8 @@ def get_sentence():
 
 if __name__ == '__main__':
     extra_title = os.getenv('EXTRA_TITLE', '')
-    st.title(f'Label data for macedonian sentiment predictor 200posto{extra_title}')
+    st.title(
+        f'Label data for macedonian sentiment predictor 200posto{extra_title}')
     sentence_info = get_sentence()
     SOME_THING = None
     if sentence_info is None:
