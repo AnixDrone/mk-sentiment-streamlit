@@ -4,7 +4,7 @@ import os
 import requests
 import streamlit as st
 
-URL = "http://130.61.244.34:5000/"
+URL = os.getenv("API_URL")
 
 
 def get_sentence():
@@ -22,8 +22,7 @@ def get_sentence():
 
 
 if __name__ == "__main__":
-    extra_title = os.getenv("EXTRA_TITLE", "")
-    st.title(f"Label data for macedonian sentiment predictor 200posto{extra_title}")
+    st.title("Label data for macedonian sentiment predictor")
     sentence_info = get_sentence()
     SOME_THING = None
     if sentence_info is None:
