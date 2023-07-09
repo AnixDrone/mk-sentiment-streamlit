@@ -22,7 +22,7 @@ spec:
     spec:
       containers:
         - name: mk-sentiment-streamlit
-          image: anixdrone/mk-sentiment-streamlit
+          image: anixdrone/mk-sentiment-streamlit:latest
           imagePullPolicy: Always
           env:
             - name: API_URL
